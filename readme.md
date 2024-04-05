@@ -10,3 +10,11 @@ Demo sheet used: https://docs.google.com/spreadsheets/d/1jFHlcij79eiLlDhu2serhcn
 # Simple example to get/write data to Google sheets
 see: python/get_write_data_to_google_sheet.py
 
+
+
+# Use Camunda Google sheets
+- Run Camunda and deploy the externalRaiseTemperature_google_sheet.bpmn
+- Run externalGetDataFromGoogleSheet.py
+- See the temperature to raise
+
+![demo](./camunda_google_sheet.gif)
