@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_008pt2d" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.15.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
-  <bpmn:process id="Process_10y1pfw" isExecutable="true" camunda:historyTimeToLive="122">
+  <bpmn:process id="Process_10y1pf1" isExecutable="true" camunda:historyTimeToLive="122">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_0o7jbwx</bpmn:outgoing>
     </bpmn:startEvent>
@@ -25,7 +25,8 @@
       </bpmn:timerEventDefinition>
     </bpmn:intermediateCatchEvent>
     <bpmn:sequenceFlow id="Flow_1nphhtz" sourceRef="Activity_0eo7p5i" targetRef="Event_0lg3h73" />
-    <bpmn:exclusiveGateway id="Gateway_17thcbf">
+    <bpmn:exclusiveGateway id="Gateway_17thcbf" default="Flow_13nzgk7">
+      <bpmn:extensionElements />
       <bpmn:incoming>Flow_1m4zz3f</bpmn:incoming>
       <bpmn:outgoing>Flow_0l47lx0</bpmn:outgoing>
       <bpmn:outgoing>Flow_13nzgk7</bpmn:outgoing>
@@ -45,12 +46,10 @@
     <bpmn:endEvent id="Event_1ovb636" name="Finish">
       <bpmn:incoming>Flow_13nzgk7</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_13nzgk7" name="temperature&#62;100" sourceRef="Gateway_17thcbf" targetRef="Event_1ovb636">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{temperature&gt;100}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_13nzgk7" name="temperature&#62;100" sourceRef="Gateway_17thcbf" targetRef="Event_1ovb636" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_10y1pfw">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_10y1pf1">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="102" width="36" height="36" />
       </bpmndi:BPMNShape>
@@ -70,6 +69,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_17thcbf_di" bpmnElement="Gateway_17thcbf" isMarkerVisible="true">
         <dc:Bounds x="805" y="95" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="787" y="65" width="87" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_02v1u9u" bpmnElement="Event_03ogymr">
         <dc:Bounds x="642" y="202" width="36" height="36" />
@@ -80,7 +82,7 @@
       <bpmndi:BPMNShape id="Event_1ovb636_di" bpmnElement="Event_1ovb636">
         <dc:Bounds x="982" y="102" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="985" y="145" width="30" height="14" />
+          <dc:Bounds x="985" y="78" width="30" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0o7jbwx_di" bpmnElement="Flow_0o7jbwx">
@@ -116,7 +118,7 @@
         <di:waypoint x="855" y="120" />
         <di:waypoint x="982" y="120" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="877" y="102" width="84" height="14" />
+          <dc:Bounds x="877" y="78" width="84" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
