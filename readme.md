@@ -10,7 +10,8 @@ Demo sheet used: https://docs.google.com/spreadsheets/d/1jFHlcij79eiLlDhu2serhcn
 # Simple example to get/write data to Google sheets
 see: python/get_write_data_to_google_sheet.py
 
-
+## Install python lib
+pip3 install -r python/requirements.txt 
 
 # Use Camunda Google sheets
 - Run Camunda and deploy the externalRaiseTemperature_google_sheet.bpmn
