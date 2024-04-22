@@ -10,8 +10,12 @@ import json
 
 logger = logging.getLogger(__name__)
 
+SERVER='localhost:8080'
+USERNAME="eurodyn"
+PASSOWRD="eurodyn"
+
 default_config = {
-    "auth_basic": {"username": "demo", "password": "demo"},
+    "auth_basic": {"username": USERNAME, "password": PASSOWRD},
     "maxTasks": 1,
     "lockDuration": 10000,
     "asyncResponseTimeout": 3000,
@@ -58,7 +62,7 @@ def main():
     topics = ["get_data_from_google_sheet"]
     executor = ThreadPoolExecutor(max_workers=len(topics))
     for index, topic in enumerate(topics):
-        executor.submit(ExternalTaskWorker(worker_id=index, config=default_config).subscribe, topic, handler.handle_task)
+        executor.submit(ExternalTaskWorker(worker_id=index, base_url='http://'+SERVER+'/engine-rest', config=default_config).subscribe, topic, handler.handle_task)
     print("Finish Setting up")
 
 
