@@ -1,5 +1,9 @@
+# Interact with Google Sheet
+
+A demo of interacting with Google sheet with Camunda REST API authentication enabled. 
 
 
+## Create a Google Sheet API key
 1. Create a new API key for Google https://docs.gspread.org/en/latest/oauth2.html#for-bots-using-service-account
 2. Download the json and save it on the cretential.json
 3. Copy the created email mpms-google.....@a........gserviceaccount.com
@@ -14,7 +18,7 @@ see: python/get_write_data_to_google_sheet.py
 pip3 install -r python/requirements.txt 
 
 # Use Camunda Google sheets
-- Run Camunda and deploy the externalRaiseTemperature_google_sheet.bpmn
+- Run Camunda and deploy the externalRaiseTemperature_google_sheet.bpmn. The username and password is eurodyn:eurodyn
 - Run externalGetDataFromGoogleSheet.py
 - See the temperature to raise
 
