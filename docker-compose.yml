@@ -3,7 +3,8 @@ version: "3.8"
 services:
 
   camunda:
-    image: camunda/camunda-bpm-platform:latest
+    image: camunda-with-authentication
+    build: camunda-with-authentication
     container_name: camunda-bpm
     ports:
       - "8080:8080" # http://localhost:8080/camunda-welcome/index.html
@@ -12,4 +13,3 @@ services:
 
 networks:
   ed-network:
-
