@@ -11,6 +11,7 @@ import json
 logger = logging.getLogger(__name__)
 
 default_config = {
+    "auth_basic": {"username": "demo", "password": "demo"},
     "maxTasks": 1,
     "lockDuration": 10000,
     "asyncResponseTimeout": 3000,
