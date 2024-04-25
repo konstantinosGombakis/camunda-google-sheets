@@ -5,6 +5,7 @@ from camunda.external_task.external_task_worker import ExternalTaskWorker
 from camunda.external_task.external_task import ExternalTask
 from camunda.utils.log_utils import log_with_context
 
+
 import gspread
 import json
 import os
@@ -12,6 +13,7 @@ import os
 logger = logging.getLogger(__name__)
 
 SERVER = os.getenv('MPMS_SERVER', 'localhost:8080')
+print(f"SERVER:{SERVER}")
 USERNAME = os.getenv('MPMS_USERNAME', 'eurodyn')
 PASSOWRD = os.getenv('MPMS_PASSOWRD', 'eurodyn')
 
@@ -55,11 +57,16 @@ class TaskHandler:
         worksheet.update_acell(self.cell,temperature)
         return task.complete({"temperature": temperature})
 
+    def resetGoogleSheetValues(self):
+        worksheet = sh.sheet1
+        worksheet.update_acell(self.cell,1)
+        print(f"Setting value of cell {self.cell} to 1")
 
 def main():
     # configure_logging()
     handler = TaskHandler(sh, '')
     handler.set_cell('B2')
+    handler.resetGoogleSheetValues()
     topics = ["get_data_from_google_sheet"]
     executor = ThreadPoolExecutor(max_workers=len(topics))
     for index, topic in enumerate(topics):
@@ -68,7 +75,7 @@ def main():
 
 
 def configure_logging():
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s",
+    logging.basicConfig(level=logging.DEBUG, format="%(asctime)s [%(levelname)s] %(message)s",
                         handlers=[logging.StreamHandler()])
 
 
