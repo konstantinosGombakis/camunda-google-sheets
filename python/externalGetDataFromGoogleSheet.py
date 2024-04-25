@@ -7,12 +7,13 @@ from camunda.utils.log_utils import log_with_context
 
 import gspread
 import json
+import os
 
 logger = logging.getLogger(__name__)
 
-SERVER='localhost:8080'
-USERNAME="eurodyn"
-PASSOWRD="eurodyn"
+SERVER = os.getenv('MPMS_SERVER', 'localhost:8080')
+USERNAME = os.getenv('MPMS_USERNAME', 'eurodyn')
+PASSOWRD = os.getenv('MPMS_PASSOWRD', 'eurodyn')
 
 default_config = {
     "auth_basic": {"username": USERNAME, "password": PASSOWRD},
