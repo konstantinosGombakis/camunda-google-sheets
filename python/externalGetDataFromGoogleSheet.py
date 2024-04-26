@@ -70,6 +70,8 @@ def start_proccess():
     resp_json = client.start_process(process_key="externalRaiseTemperature_google_sheet", business_key=str(business_key),variables={})
     process_instance=resp_json['id']
     print(f"See the running process: http://{SERVER}/camunda/app/cockpit/default/#/process-instance/{process_instance}")
+    print(f"with username:{USERNAME} and passowrd:{PASSOWRD}")
+          
     # print(resp_json)
 
 
