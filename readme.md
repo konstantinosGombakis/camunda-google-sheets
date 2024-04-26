@@ -23,3 +23,11 @@ pip3 install -r python/requirements.txt
 - See the temperature to raise
 
 ![demo](./camunda_google_sheet.gif)
+
+# Configuration
+The following enviromental variables can be setup for changing the default:
+- MPMS_SERVER
+- MPMS_USERNAME
+- MPMS_PASSOWRD
+
+ie export MPMS_SERVER=demo-processorcestrator-server.eurodyn.com:8080
